@@ -32,9 +32,46 @@ public class TestService {
 	}
 
 	@Test
-	public void testSaveStudent() {
-		Assert.assertEquals(1, service.saveStudent("1", "mathe", 934));
+	public void testSaveStudent_1() {
+		Assert.assertEquals(1, service.saveStudent("5", "mathe", 934));
+		service.deleteStudent("5");
+	}
+
+	@Test
+	public void testSaveStudent_2() {
 		Assert.assertEquals(0, service.saveStudent("", "mathe", 934));
+	}
+
+	@Test
+	public void testSaveStudent_3() {
+		Assert.assertEquals(1, service.saveStudent("1", "b", 934));
 		service.deleteStudent("1");
+	}
+
+	@Test
+	public void testSaveStudent_4() {
+		Assert.assertEquals(0, service.saveStudent("1", "", 934));
+	}
+
+	@Test
+	public void testSaveStudent_5() {
+		Assert.assertEquals(0, service.saveStudent("1", "mathe", 110));
+		service.deleteStudent("1");
+	}
+
+	@Test
+	public void testSaveStudent_6() {
+		Assert.assertEquals(1, service.saveStudent("1", "mathe", 111));
+	}
+
+	@Test
+	public void testSaveStudent_7() {
+		Assert.assertEquals(1, service.saveStudent("1", "mathe", 937));
+		service.deleteStudent("1");
+	}
+
+	@Test
+	public void testSaveStudent_8() {
+		Assert.assertEquals(0, service.saveStudent("1", "mathe", 938));
 	}
 }
