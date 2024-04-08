@@ -8,11 +8,11 @@ import java.time.temporal.WeekFields;
 import java.util.Locale;
 
 public class Service {
-    private StudentXMLRepository studentXmlRepo;
-    private TemaXMLRepository temaXmlRepo;
-    private NotaXMLRepository notaXmlRepo;
+    private AbstractCRUDRepository<String, Student> studentXmlRepo;
+    private AbstractCRUDRepository<String, Tema> temaXmlRepo;
+    private AbstractCRUDRepository<Pair<String, String>, Nota> notaXmlRepo;
 
-    public Service(StudentXMLRepository studentXmlRepo, TemaXMLRepository temaXmlRepo, NotaXMLRepository notaXmlRepo) {
+    public Service(AbstractCRUDRepository<String, Student> studentXmlRepo, AbstractCRUDRepository<String, Tema> temaXmlRepo, AbstractCRUDRepository<Pair<String, String>, Nota> notaXmlRepo) {
         this.studentXmlRepo = studentXmlRepo;
         this.temaXmlRepo = temaXmlRepo;
         this.notaXmlRepo = notaXmlRepo;
@@ -130,6 +130,6 @@ public class Service {
     public void createStudentFile(String idStudent, String idTema) {
         Nota nota = notaXmlRepo.findOne(new Pair(idStudent, idTema));
 
-        notaXmlRepo.createFile(nota);
+//        notaXmlRepo.createFile(nota);
     }
 }

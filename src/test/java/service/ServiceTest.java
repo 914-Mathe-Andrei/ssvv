@@ -20,12 +20,13 @@ public class ServiceTest extends TestCase {
 		Validator<Tema> temaValidator = new TemaValidator();
 		Validator<Nota> notaValidator = new NotaValidator();
 
-		StudentXMLRepository repo1 = new StudentXMLRepository(studentValidator, "studenti.xml");
-		TemaXMLRepository repo2 = new TemaXMLRepository(temaValidator, "teme.xml");
-		NotaXMLRepository repo3 = new NotaXMLRepository(notaValidator, "note.xml");
+		StudentRepository repo1 = new StudentRepository(studentValidator);
+		TemaRepository repo2 = new TemaRepository(temaValidator);
+		NotaRepository repo3 = new NotaRepository(notaValidator);
 
 		service = new Service(repo1, repo2, repo3);
 	}
+
 	public void testSaveStudent() {
 		int result = service.saveStudent("1", "bla", 111);
 		assertEquals(result, 1);
@@ -61,7 +62,7 @@ public class ServiceTest extends TestCase {
 	}
 
 	public void testSaveNota() {
-		int result = service.saveNota("10", "10", 3, 3, "ddhhf");
+		int result = service.saveNota("1", "1", 3, 3, "ddhhf");
 		assertEquals(result, -1);
 
 		result = service.saveStudent("1", "bla", 111);
@@ -75,7 +76,7 @@ public class ServiceTest extends TestCase {
 		result = service.saveNota("1", "1", 3, -1, "ddhhf");
 		assertEquals(result, 0);
 
-		result = service.saveNota("1", "1", 11, 3, "ddhhf");
+		result = service.saveNota("1", "1", 11, 2, "ddhhf");
 		assertEquals(result, 0);
 	}
 }
