@@ -10,7 +10,7 @@ import validation.StudentValidator;
 import validation.TemaValidator;
 import validation.Validator;
 
-public class ServiceTest_BigBang extends TestCase {
+public class ServiceBigBangTest extends TestCase {
 	private Service service;
 
 	public void setUp() {

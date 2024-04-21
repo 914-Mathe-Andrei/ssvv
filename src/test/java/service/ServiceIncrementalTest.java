@@ -12,9 +12,7 @@ import validation.StudentValidator;
 import validation.TemaValidator;
 import validation.Validator;
 
-import static org.junit.Assert.*;
-
-public class ServiceTest_Incremental extends TestCase {
+public class ServiceIncrementalTest extends TestCase {
 	private Service service;
 
 	public void setUp() {
